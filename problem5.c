@@ -9,15 +9,22 @@ struct BarcelonaPlayer {
     double Rating;
 };
 void findPlayers(struct BarcelonaPlayer *pl, int size) {
+    int count = 0;
     for(int i = 0; i < size; i++) {
         if (strcmp("Argentina", pl[i].country) && strcmp("argentina", pl[i].country)) {
+            count = count + 1;
             continue;
         }
         else {
             printf("%s ", pl[i].name);
         }
     }
-    printf("is/are from Argentina\n");
+    if (count) {
+        printf("There are no Argentine Players\n");
+    }
+    else {
+        printf("is/are from Argentina\n");
+    }
 }
 void highestPaidPlayer(struct BarcelonaPlayer *pl, int size) {
     double max = pl[0].Salary;

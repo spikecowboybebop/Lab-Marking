@@ -7,7 +7,7 @@ struct BarcelonaPlayer {
     double Salary;
     char country[20];
     double Rating;
-};/*
+};
 void findPlayers(struct BarcelonaPlayer *pl, int size) {
     for(int i = 0; i < size; i++) {
         if (strcmp("Argentina", pl[i].country) && strcmp("argentina", pl[i].country)) {
@@ -18,9 +18,20 @@ void findPlayers(struct BarcelonaPlayer *pl, int size) {
         }
     }
     printf("is/are from Argentina\n");
-}*/
+}
 void highestPaidPlayer(struct BarcelonaPlayer *pl, int size) {
-
+    double max = pl[0].Salary;
+    int max_i = 0;
+    for(int i = 1; i < size; i++) {
+        if(max > pl[i].Salary) {
+            continue;
+        }
+        else {
+            max = pl[i].Salary;
+            max_i = i;
+        }
+    }
+    printf("The highest paid player is %s\n", pl[max_i].name);
 }
 int main() {
     struct BarcelonaPlayer listOfPlayers[4];
@@ -28,29 +39,29 @@ int main() {
     for(int i = 0; i < 4; i++) {
         printf("[%d] Player\n", i+1);
 
-        //printf("Player name - ");
-        //gets(listOfPlayers[i].name);
+        printf("Player name - ");
+        gets(listOfPlayers[i].name);
 
-        //printf("Player Position - ");
-        //gets(listOfPlayers[i].Position);
+        printf("Player Position - ");
+        gets(listOfPlayers[i].Position);
 
-        //printf("Player Country - ");
-        //gets(listOfPlayers[i].country);
+        printf("Player Country - ");
+        gets(listOfPlayers[i].country);
 
-        //printf("Player age - ");
-        //scanf("%d", &listOfPlayers[i].age);
+        printf("Player age - ");
+        scanf("%d", &listOfPlayers[i].age);
 
         printf("Player's Salary - ");
         scanf("%lf", &listOfPlayers[i].Salary);
 
-        //printf("Player's Rating - ");
-        //scanf("%lf", &listOfPlayers[i].Rating);
+        printf("Player's Rating - ");
+        scanf("%lf", &listOfPlayers[i].Rating);
 
         getc(stdin);
     }
     fflush(stdin);
 
-    //findPlayers(listOfPlayers, 4);
+    findPlayers(listOfPlayers, 4);
 
     highestPaidPlayer(listOfPlayers, 4);
 

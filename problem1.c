@@ -1,5 +1,5 @@
 #include <stdio.h>
-typedef struct Shape {
+struct Shape {
     double length;
     double width;
 };
